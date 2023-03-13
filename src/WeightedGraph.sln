@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.WeightedGraph.WinApp", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.WeightedGraph.Core", "Czu.WeightedGraph.Core\Czu.WeightedGraph.Core.csproj", "{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.WeightedGraph.Core.Tests", "Czu.WeightedGraph.Core.Tests\Czu.WeightedGraph.Core.Tests.csproj", "{7C01FDCF-D010-4D09-9000-8E97A89571B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C01FDCF-D010-4D09-9000-8E97A89571B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C01FDCF-D010-4D09-9000-8E97A89571B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C01FDCF-D010-4D09-9000-8E97A89571B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C01FDCF-D010-4D09-9000-8E97A89571B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
