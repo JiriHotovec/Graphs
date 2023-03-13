@@ -2,7 +2,7 @@
 
 namespace Czu.WeightedGraph.Core.Tests
 {
-    public class Tests
+    public class VertexTests
     {
         [Fact]
         public void Test1()
