@@ -77,6 +77,12 @@
       <None Include="App.config" />
       <None Include="packages.config" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Czu.WeightedGraph.Core\Czu.WeightedGraph.Core.csproj">
+        <Project>{2d2dad15-fac6-45b7-bda7-34fdd1c3d676}</Project>
+        <Name>Czu.WeightedGraph.Core</Name>
+      </ProjectReference>
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
