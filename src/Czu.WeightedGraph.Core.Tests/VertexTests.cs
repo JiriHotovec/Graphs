@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
@@ -6,12 +7,13 @@ namespace Czu.WeightedGraph.Core.Tests
 {
     public class VertexTests
     {
-        [Fact]
-        public void Ctor_NullInput_ThrowsArgumentException()
+        [Theory]
+        [MemberData(nameof(GetInvalidInputData))]
+        public void Ctor_InvalidInput_ThrowsArgumentException(string input)
         {
             Action actual = () =>
             {
-                _ = new Vertex(null);
+                _ = new Vertex(input);
             };
 
             actual.Should().Throw<ArgumentException>();
@@ -52,5 +54,13 @@ namespace Czu.WeightedGraph.Core.Tests
 
             vertex1.GetHashCode().Should().Be(vertex2.GetHashCode());
         }
+
+        public static IEnumerable<object[]> GetInvalidInputData() =>
+            new[]
+            {
+                new object[] { null },
+                new object[] { string.Empty },
+                new object[] { new string('A', 256) }
+            };
     }
 }

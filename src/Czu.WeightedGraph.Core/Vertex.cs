@@ -4,11 +4,18 @@ namespace Czu.WeightedGraph.Core
 {
     public readonly struct Vertex : IEquatable<Vertex>
     {
+        private const int NameMaxLength = 255;
+
         public Vertex(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException(nameof(name));
+                throw new ArgumentException($"{nameof(name)} cannot be empty");
+            }
+
+            if (name.Length > NameMaxLength)
+            {
+                throw new ArgumentException($"{nameof(name)} length must be less or equal than {NameMaxLength} chars");
             }
 
             Name = name;
