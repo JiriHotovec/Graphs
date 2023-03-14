@@ -1,4 +1,5 @@
 ﻿using System;
+using Czu.WeightedGraph.Core.Exceptions;
 
 namespace Czu.WeightedGraph.Core
 {
@@ -10,12 +11,12 @@ namespace Czu.WeightedGraph.Core
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException($"{nameof(name)} cannot be empty");
+                throw new ModelException($"{nameof(name)} cannot be empty");
             }
 
             if (name.Length > NameMaxLength)
             {
-                throw new ArgumentException($"{nameof(name)} length must be less or equal than {NameMaxLength} chars");
+                throw new ModelException($"{nameof(name)} length must be less or equal than {NameMaxLength} chars");
             }
 
             Name = name;

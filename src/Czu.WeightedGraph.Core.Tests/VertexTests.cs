@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Czu.WeightedGraph.Core.Exceptions;
 using FluentAssertions;
 using Xunit;
 
@@ -9,14 +10,14 @@ namespace Czu.WeightedGraph.Core.Tests
     {
         [Theory]
         [MemberData(nameof(GetInvalidInputData))]
-        public void Ctor_InvalidInput_ThrowsArgumentException(string input)
+        public void Ctor_InvalidInput_ThrowsModelException(string input)
         {
             Action actual = () =>
             {
                 _ = new Vertex(input);
             };
 
-            actual.Should().Throw<ArgumentException>();
+            actual.Should().Throw<ModelException>();
         }
 
         [Theory]
