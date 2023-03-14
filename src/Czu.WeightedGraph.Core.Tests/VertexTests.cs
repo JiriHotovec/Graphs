@@ -23,12 +23,12 @@ namespace Czu.WeightedGraph.Core.Tests
         [Theory]
         [InlineData("Name1", "name1", true)]
         [InlineData("Name1", "name2", false)]
-        public void OperatorEquals_CompareIds_ReturnsSuccess(string leftValue, string rightValue, bool expected)
+        public void OperatorEquals_CompareNames_ReturnsSuccess(string leftValue, string rightValue, bool expected)
         {
-            var leftId = new Vertex(leftValue);
-            var rightId = new Vertex(rightValue);
+            var leftName = new Vertex(leftValue);
+            var rightName = new Vertex(rightValue);
 
-            var actual = leftId == rightId;
+            var actual = leftName == rightName;
 
             actual.Should().Be(expected);
         }

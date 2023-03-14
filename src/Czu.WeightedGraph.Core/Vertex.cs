@@ -5,7 +5,7 @@ namespace Czu.WeightedGraph.Core
 {
     public readonly struct Vertex : IEquatable<Vertex>
     {
-        private const int NameMaxLength = 255;
+        public const int NameMaxLength = 255;
 
         public Vertex(string name)
         {
