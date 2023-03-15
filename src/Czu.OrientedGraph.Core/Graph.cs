@@ -1,6 +1,6 @@
 ﻿namespace Czu.OrientedGraph.Core
 {
-    public sealed class WeightedGraph
+    public sealed class Graph
     {
         public void ToSnapshot()
         {}
