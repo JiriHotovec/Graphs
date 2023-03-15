@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Czu.WeightedGraph.WinApp
+namespace Czu.OrientedGraph.WinApp
 {
     static class Program
     {

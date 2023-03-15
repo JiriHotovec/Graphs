@@ -1,4 +1,4 @@
-﻿namespace Czu.WeightedGraph.Core
+﻿namespace Czu.OrientedGraph.Core
 {
     public interface IEdge
     {

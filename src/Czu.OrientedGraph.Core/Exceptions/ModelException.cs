@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Czu.WeightedGraph.Core.Exceptions
+namespace Czu.OrientedGraph.Core.Exceptions
 {
     public class ModelException : Exception
     {

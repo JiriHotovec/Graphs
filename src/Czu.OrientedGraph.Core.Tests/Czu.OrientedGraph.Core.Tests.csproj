@@ -8,8 +8,6 @@
         <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Czu.WeightedGraph.Core.Tests</RootNamespace>
-        <AssemblyName>Czu.WeightedGraph.Core.Tests</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -81,9 +79,9 @@
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Czu.WeightedGraph.Core\Czu.WeightedGraph.Core.csproj">
+      <ProjectReference Include="..\Czu.OrientedGraph.Core\Czu.OrientedGraph.Core.csproj">
         <Project>{2d2dad15-fac6-45b7-bda7-34fdd1c3d676}</Project>
-        <Name>Czu.WeightedGraph.Core</Name>
+        <Name>Czu.OrientedGraph.Core</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

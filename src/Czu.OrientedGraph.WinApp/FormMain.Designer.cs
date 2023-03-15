@@ -1,4 +1,4 @@
-﻿namespace Czu.WeightedGraph.WinApp
+﻿namespace Czu.OrientedGraph.WinApp
 {
     partial class FormMain
     {

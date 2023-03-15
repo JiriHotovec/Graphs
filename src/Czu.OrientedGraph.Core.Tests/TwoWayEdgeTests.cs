@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Czu.WeightedGraph.Core.Exceptions;
+using Czu.OrientedGraph.Core.Exceptions;
 using FluentAssertions;
 using Xunit;
 
-namespace Czu.WeightedGraph.Core.Tests
+namespace Czu.OrientedGraph.Core.Tests
 {
     public class TwoWayEdgeTests
     {

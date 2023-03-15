@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Czu.WeightedGraph.WinApp.Properties
+namespace Czu.OrientedGraph.WinApp.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -45,7 +45,7 @@ namespace Czu.WeightedGraph.WinApp.Properties
                 if ((resourceMan == null))
                 {
                     global::System.Resources.ResourceManager temp =
-                        new global::System.Resources.ResourceManager("Czu.WeightedGraph.WinApp.Properties.Resources",
+                        new global::System.Resources.ResourceManager("Czu.OrientedGraph.WinApp.Properties.Resources",
                             typeof(Resources).Assembly);
                     resourceMan = temp;
                 }

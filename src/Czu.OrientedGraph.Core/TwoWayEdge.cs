@@ -1,7 +1,7 @@
 ﻿using System;
-using Czu.WeightedGraph.Core.Exceptions;
+using Czu.OrientedGraph.Core.Exceptions;
 
-namespace Czu.WeightedGraph.Core
+namespace Czu.OrientedGraph.Core
 {
     public class TwoWayEdge : IEdge, IEquatable<TwoWayEdge>
     {
