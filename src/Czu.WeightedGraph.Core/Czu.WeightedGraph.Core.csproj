@@ -38,8 +38,12 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="IEdge.cs" />
+        <Compile Include="TwoWayEdge.cs" />
         <Compile Include="Exceptions\ModelException.cs" />
         <Compile Include="Vertex.cs" />
+        <Compile Include="Weight.cs" />
+        <Compile Include="WeightedTwoWayEdge.cs" />
         <Compile Include="WeightedGraph.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
