@@ -1,4 +1,5 @@
 ﻿using System;
+using Czu.WeightedGraph.Core.Exceptions;
 
 namespace Czu.WeightedGraph.Core
 {
@@ -10,6 +11,11 @@ namespace Czu.WeightedGraph.Core
 
         public TwoWayEdge(Vertex source, Vertex destination)
         {
+            if (source == destination)
+            {
+                throw new ModelException("Edge must have different vertices set");
+            }
+
             Source = source;
             Destination = destination;
         }
