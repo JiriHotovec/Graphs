@@ -39,6 +39,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="IEdge.cs" />
+        <Compile Include="IWeightedEdge.cs" />
         <Compile Include="SnapshotGraph.cs" />
         <Compile Include="TwoWayEdge.cs" />
         <Compile Include="Exceptions\ModelException.cs" />

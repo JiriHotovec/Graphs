@@ -1,6 +1,6 @@
 ﻿namespace Czu.OrientedGraph.Core
 {
-    public class WeightedTwoWayEdge : TwoWayEdge
+    public class WeightedTwoWayEdge : TwoWayEdge, IWeightedEdge
     {
         public static readonly Weight DefaultWeight = new Weight(1);
 
