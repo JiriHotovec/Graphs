@@ -43,7 +43,6 @@ namespace Czu.OrientedGraph.Core
             unchecked
             {
                 return Source.GetHashCode() + Destination.GetHashCode();
-                    //(Source.GetHashCode() * 367) ^ Destination.GetHashCode()
             }
         }
 
