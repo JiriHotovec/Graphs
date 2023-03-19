@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Czu.OrientedGraph.Core
 {
-    public interface IDataStorage<T> where T : IEdge
+    public interface IGraphStorage<T> where T : IEdge
     {
         Task UpsertAsync(SnapshotGraph<T> snapshot, CancellationToken cancellationToken = default);
 
