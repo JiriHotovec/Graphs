@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Czu.OrientedGraph.Core
 {
@@ -22,7 +23,7 @@ namespace Czu.OrientedGraph.Core
         }
 
         public SnapshotGraph<T> ToSnapshot() =>
-            new SnapshotGraph<T>(_edges);
+            new SnapshotGraph<T>(_edges.ToArray());
 
         public static Graph<T> FromSnapshot(SnapshotGraph<T> snapshot)
         {
