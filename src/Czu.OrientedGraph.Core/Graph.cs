@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Czu.OrientedGraph.Core
@@ -6,6 +7,13 @@ namespace Czu.OrientedGraph.Core
     public sealed class Graph<T> where T : IEdge
     {
         private readonly HashSet<T> _edges = new HashSet<T>();
+
+        public Graph(GraphName name)
+        {
+            Name = name;
+        }
+
+        public GraphName Name { get; }
 
         public void UpsertEdge(T edge)
         {
@@ -23,11 +31,16 @@ namespace Czu.OrientedGraph.Core
         }
 
         public SnapshotGraph<T> ToSnapshot() =>
-            new SnapshotGraph<T>(_edges.ToArray());
+            new SnapshotGraph<T>(Name, _edges.ToArray());
 
         public static Graph<T> FromSnapshot(SnapshotGraph<T> snapshot)
         {
-            var graph = new Graph<T>();
+            if (snapshot is null)
+            {
+                throw new ArgumentNullException(nameof(snapshot));
+            }
+
+            var graph = new Graph<T>(new GraphName(snapshot.Name));
             foreach (var edge in snapshot.Edges)
             {
                 graph.UpsertEdge(edge);
