@@ -3,21 +3,16 @@ using Czu.OrientedGraph.Core.Exceptions;
 
 namespace Czu.OrientedGraph.Core
 {
-    public readonly struct Weight : IEquatable<Weight>
+    public sealed class Weight : IEquatable<Weight>
     {
         public const int WeightMin = 1;
-        public const int WeightMax = 1000000;
+        public const int WeightMax = 1000;
 
-        public Weight(int value)
+        public Weight(int value = WeightMin)
         {
-            if (value < WeightMin)
+            if (value < WeightMin || value > WeightMax)
             {
-                throw new ModelException($"{nameof(value)} must be greater or equal than {WeightMin}");
-            }
-
-            if (value > WeightMax)
-            {
-                throw new ModelException($"{nameof(value)} must be less than {WeightMax}");
+                throw new ModelException($"Weight must be in interval <{WeightMin}, {WeightMax}>");
             }
 
             Value = value;
@@ -34,7 +29,7 @@ namespace Czu.OrientedGraph.Core
 
         public bool Equals(Weight other)
         {
-            return Value == other.Value;
+            return Value == other?.Value;
         }
 
         public override bool Equals(object obj)
@@ -49,12 +44,12 @@ namespace Czu.OrientedGraph.Core
 
         public static bool operator ==(Weight left, Weight right)
         {
-            return left.Equals(right);
+            return left?.Equals(right) ?? false;
         }
 
         public static bool operator !=(Weight left, Weight right)
         {
-            return !left.Equals(right);
+            return !left?.Equals(right) ?? false;
         }
     }
 }

@@ -71,6 +71,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="GraphNameTests.cs" />
+        <Compile Include="GraphTests.cs" />
         <Compile Include="TwoWayEdgeTests.cs" />
         <Compile Include="VertexTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

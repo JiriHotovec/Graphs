@@ -16,8 +16,8 @@ namespace Czu.OrientedGraph.Core
                 throw new ModelException("Edge must have different vertices set");
             }
 
-            Source = source;
-            Destination = destination;
+            Source = source ?? throw new ArgumentNullException(nameof(source));
+            Destination = destination ?? throw new ArgumentNullException(nameof(destination));
         }
 
         public override string ToString() => $"({Source}, {Destination})";

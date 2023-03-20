@@ -3,7 +3,7 @@ using Czu.OrientedGraph.Core.Exceptions;
 
 namespace Czu.OrientedGraph.Core
 {
-    public readonly struct Vertex : IEquatable<Vertex>
+    public sealed class Vertex : IEquatable<Vertex>
     {
         public const int NameMaxLength = 255;
 
@@ -11,12 +11,12 @@ namespace Czu.OrientedGraph.Core
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ModelException($"{nameof(name)} cannot be empty");
+                throw new ModelException("Vertex name cannot be empty");
             }
 
             if (name.Length > NameMaxLength)
             {
-                throw new ModelException($"{nameof(name)} length must be less or equal than {NameMaxLength} chars");
+                throw new ModelException($"Vertex name length must be equal or less than {NameMaxLength} chars");
             }
 
             Name = name;

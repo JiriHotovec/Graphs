@@ -3,7 +3,7 @@ using Czu.OrientedGraph.Core.Exceptions;
 
 namespace Czu.OrientedGraph.Core
 {
-    public readonly struct GraphName : IEquatable<GraphName>
+    public sealed class GraphName : IEquatable<GraphName>
     {
         public const int NameMaxLength = 255;
 
@@ -11,12 +11,12 @@ namespace Czu.OrientedGraph.Core
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ModelException($"{nameof(value)} cannot be empty");
+                throw new ModelException($"Graph name cannot be empty");
             }
 
             if (value.Length > NameMaxLength)
             {
-                throw new ModelException($"{nameof(value)} length must be less or equal than {NameMaxLength} chars");
+                throw new ModelException($"Graph name length must be equal or less than {NameMaxLength} chars");
             }
 
             Value = value;
@@ -33,7 +33,7 @@ namespace Czu.OrientedGraph.Core
 
         public bool Equals(GraphName other)
         {
-            return string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(Value, other?.Value, StringComparison.OrdinalIgnoreCase);
         }
 
         public override bool Equals(object obj)
@@ -48,12 +48,12 @@ namespace Czu.OrientedGraph.Core
 
         public static bool operator ==(GraphName left, GraphName right)
         {
-            return left.Equals(right);
+            return left?.Equals(right) ?? false;
         }
 
         public static bool operator !=(GraphName left, GraphName right)
         {
-            return !left.Equals(right);
+            return !left?.Equals(right) ?? false;
         }
     }
 }
