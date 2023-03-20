@@ -22,8 +22,15 @@ namespace Czu.OrientedGraph.Core
                 throw new ArgumentNullException(nameof(snapshot));
             }
 
-            var json = JsonConvert.SerializeObject(snapshot);
-            File.WriteAllText(GetFilePath(new GraphName(snapshot.Name)), json);
+            try
+            {
+                var json = JsonConvert.SerializeObject(snapshot);
+                File.WriteAllText(GetFilePath(new GraphName(snapshot.Name)), json);
+            }
+            catch (Exception)
+            {
+                throw new ModelException("File cannot be saved");
+            }
 
             return Task.CompletedTask;
         }
@@ -69,7 +76,14 @@ namespace Czu.OrientedGraph.Core
                 throw new ArgumentNullException(nameof(name));
             }
 
-            File.Delete(GetFilePath(name));
+            try
+            {
+                File.Delete(GetFilePath(name));
+            }
+            catch (Exception)
+            {
+                throw new ModelException("File cannot be deleted");
+            }
 
             return Task.CompletedTask;
         }
