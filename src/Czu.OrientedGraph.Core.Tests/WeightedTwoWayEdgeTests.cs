@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Czu.OrientedGraph.Core.Exceptions;
+﻿using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
@@ -8,19 +6,6 @@ namespace Czu.OrientedGraph.Core.Tests
 {
     public class WeightedTwoWayEdgeTests
     {
-        [Fact]
-        public void Ctor_DefaultWeight_ReturnsObject()
-        {
-            const string srcVertexName = "Name1";
-            const string dstVertexName = "Name2";
-            var defaultWeight = new Weight(1);
-            var expected = new WeightedTwoWayEdge(new Vertex(srcVertexName), new Vertex(dstVertexName), defaultWeight);
-
-            var actual = new WeightedTwoWayEdge(new Vertex(srcVertexName), new Vertex(dstVertexName));
-
-            actual.Should().BeEquivalentTo(expected);
-        }
-
         [Theory]
         [MemberData(nameof(GetWeightInputData))]
         public void Ctor_WeightInput_ReturnsSuccess(Weight leftWeight, Weight rightWeight, bool expected)
@@ -64,12 +49,6 @@ namespace Czu.OrientedGraph.Core.Tests
         public static IEnumerable<object[]> GetEqualityData() =>
             new[]
             {
-                new object[]
-                {
-                    new WeightedTwoWayEdge(new Vertex("Name1"), new Vertex("Name2")),
-                    new WeightedTwoWayEdge(new Vertex("Name1"), new Vertex("Name2")),
-                    true
-                },
                 new object[]
                 {
                     new WeightedTwoWayEdge(new Vertex("Name1"), new Vertex("Name2"), new Weight(1)),

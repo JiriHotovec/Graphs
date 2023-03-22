@@ -24,6 +24,7 @@ namespace Czu.OrientedGraph.Core
 
             try
             {
+                TryCreateDirectory();
                 var json = JsonConvert.SerializeObject(snapshot);
                 File.WriteAllText(GetFilePath(new GraphName(snapshot.Name)), json);
             }
@@ -92,6 +93,15 @@ namespace Czu.OrientedGraph.Core
             name != null
                 ? Task.FromResult(File.Exists(GetFilePath(name)))
                 : throw new ArgumentNullException(nameof(name));
+
+        private void TryCreateDirectory()
+        {
+            var directoryPath = GetDirectoryPath();
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+        }
 
         private string GetFileNameFromGraphName(GraphName name)
         {
