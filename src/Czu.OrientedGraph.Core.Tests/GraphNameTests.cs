@@ -61,7 +61,7 @@ namespace Czu.OrientedGraph.Core.Tests
             {
                 new object[] { null },
                 new object[] { string.Empty },
-                new object[] { new string('A', 256) }
+                new object[] { new string('A', GraphName.NameMaxLength + 1) }
             };
     }
 }

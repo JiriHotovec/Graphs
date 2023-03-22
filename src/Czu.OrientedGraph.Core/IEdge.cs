@@ -5,5 +5,7 @@
         Vertex Source { get; }
 
         Vertex Destination { get; }
+
+        bool HasRelation(IEdge edge);
     }
 }

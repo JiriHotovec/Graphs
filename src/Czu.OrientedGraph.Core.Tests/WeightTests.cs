@@ -50,8 +50,8 @@ namespace Czu.OrientedGraph.Core.Tests
             new[]
             {
                 new object[] { int.MinValue },
-                new object[] { 0 },
-                new object[] { 1000001 },
+                new object[] { Weight.WeightMin - 1 },
+                new object[] { Weight.WeightMax + 1 },
                 new object[] { int.MaxValue }
             };
     }

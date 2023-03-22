@@ -7,7 +7,7 @@ namespace Czu.OrientedGraph.Core
 {
     public sealed class Graph<T> where T : IEdge
     {
-        private const int MaxEdges = 100;
+        public const int MaxEdges = 100;
 
         private readonly HashSet<T> _edges = new HashSet<T>();
 
@@ -17,6 +17,25 @@ namespace Czu.OrientedGraph.Core
         }
 
         public GraphName Name { get; }
+
+        public SnapshotGraph<T> ToSnapshot() =>
+            new SnapshotGraph<T>(Name, _edges.ToArray());
+
+        public static Graph<T> FromSnapshot(SnapshotGraph<T> snapshot)
+        {
+            if (snapshot is null)
+            {
+                throw new ArgumentNullException(nameof(snapshot));
+            }
+
+            var graph = new Graph<T>(new GraphName(snapshot.Name));
+            foreach (var edge in snapshot.Edges)
+            {
+                graph.UpsertEdge(edge);
+            }
+
+            return graph;
+        }
 
         public void UpsertEdge(T edge)
         {
@@ -28,6 +47,11 @@ namespace Czu.OrientedGraph.Core
             if (_edges.Count >= MaxEdges)
             {
                 throw new ModelException($"You have exceeded maximum number ({MaxEdges}) of edges in graph");
+            }
+
+            if (_edges.Any() && !ExistsRelation(edge))
+            {
+                throw new ModelException($"You have to add edge to existed vertices");
             }
 
             TryDeleteEdge(edge);
@@ -48,23 +72,21 @@ namespace Czu.OrientedGraph.Core
             }
         }
 
-        public SnapshotGraph<T> ToSnapshot() =>
-            new SnapshotGraph<T>(Name, _edges.ToArray());
+        public IEnumerable<T> GetEdges() => _edges.ToArray();
 
-        public static Graph<T> FromSnapshot(SnapshotGraph<T> snapshot)
+        public IEnumerable<Vertex> GetVertices()
         {
-            if (snapshot is null)
+            var vertices = new List<Vertex>();
+            foreach (var edge in _edges)
             {
-                throw new ArgumentNullException(nameof(snapshot));
+                vertices.Add(edge.Source);
+                vertices.Add(edge.Destination);
             }
 
-            var graph = new Graph<T>(new GraphName(snapshot.Name));
-            foreach (var edge in snapshot.Edges)
-            {
-                graph.UpsertEdge(edge);
-            }
-
-            return graph;
+            return vertices.Distinct();
         }
+
+        public bool ExistsRelation(T edge) =>
+            _edges.Any(s => s.HasRelation(edge));
     }
 }

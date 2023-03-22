@@ -9,6 +9,12 @@ namespace Czu.OrientedGraph.Core
 
         public Vertex Destination { get; }
 
+        public bool HasRelation(IEdge edge) =>
+            Source == edge.Source ||
+            Source == edge.Destination ||
+            Destination == edge.Source ||
+            Destination == edge.Destination;
+
         public TwoWayEdge(Vertex source, Vertex destination)
         {
             if (source == destination)
