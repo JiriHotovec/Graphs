@@ -22,13 +22,30 @@ namespace Czu.OrientedGraph.Core
                 throw new ArgumentNullException(nameof(snapshot));
             }
 
+            var filePath = GetFilePath(new GraphName(snapshot.Name));
+
+            return UpsertAsync(snapshot, filePath, cancellationToken);
+        }
+
+        public Task UpsertAsync(SnapshotGraph<T> snapshot, string filePath, CancellationToken cancellationToken = default)
+        {
+            if (snapshot is null)
+            {
+                throw new ArgumentNullException(nameof(snapshot));
+            }
+
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                throw new ArgumentNullException(nameof(filePath));
+            }
+
             try
             {
                 TryCreateDirectory();
                 var json = JsonConvert.SerializeObject(snapshot);
-                File.WriteAllText(GetFilePath(new GraphName(snapshot.Name)), json);
+                File.WriteAllText(filePath, json);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw new ModelException("File cannot be saved");
             }
@@ -44,12 +61,23 @@ namespace Czu.OrientedGraph.Core
             }
 
             var filePath = GetFilePath(name);
+
+            return GetAsync(filePath, cancellationToken);
+        }
+
+        public Task<SnapshotGraph<T>> GetAsync(string filePath, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                throw new ArgumentNullException(nameof(filePath));
+            }
+
             string fileContent;
             try
             {
                 fileContent = File.ReadAllText(filePath);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw new ModelException($"File cannot be opened in path: {filePath}");
             }
@@ -59,7 +87,7 @@ namespace Czu.OrientedGraph.Core
             {
                 snapshot = JsonConvert.DeserializeObject<SnapshotGraph<T>>(fileContent);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw new ModelException("File doesn't meet required structure");
             }
@@ -81,7 +109,7 @@ namespace Czu.OrientedGraph.Core
             {
                 File.Delete(GetFilePath(name));
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw new ModelException("File cannot be deleted");
             }
