@@ -11,5 +11,8 @@ namespace Czu.OrientedGraph.Core
         }
 
         public Weight Weight { get; }
+
+        public override IEdge SwitchVertices() =>
+            new WeightedTwoWayEdge(Destination, Source, Weight);
     }
 }

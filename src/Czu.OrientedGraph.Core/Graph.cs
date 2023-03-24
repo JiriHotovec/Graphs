@@ -86,7 +86,19 @@ namespace Czu.OrientedGraph.Core
             return vertices.Distinct();
         }
 
+        public void SwitchVertices(T edge)
+        {
+            if (edge == null)
+            {
+                throw new ArgumentNullException(nameof(edge));
+            }
+
+            UpsertEdge((T)edge.SwitchVertices());
+        }
+
         public bool ExistsRelation(T edge) =>
-            _edges.Any(s => s.HasRelation(edge));
+            edge == null
+                ? throw new ArgumentNullException(nameof(edge))
+                : _edges.Any(s => s.HasRelation(edge));
     }
 }

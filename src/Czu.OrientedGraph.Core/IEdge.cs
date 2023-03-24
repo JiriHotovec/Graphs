@@ -6,6 +6,8 @@
 
         Vertex Destination { get; }
 
-        bool HasRelation(IEdge edge);
+        IEdge SwitchVertices();
+
+        bool HasRelation(IEdge other);
     }
 }

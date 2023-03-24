@@ -45,7 +45,7 @@ namespace Czu.OrientedGraph.Core
                 var json = JsonConvert.SerializeObject(snapshot);
                 File.WriteAllText(filePath, json);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ModelException("File cannot be saved");
             }
@@ -77,7 +77,7 @@ namespace Czu.OrientedGraph.Core
             {
                 fileContent = File.ReadAllText(filePath);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ModelException($"File cannot be opened in path: {filePath}");
             }
@@ -87,7 +87,7 @@ namespace Czu.OrientedGraph.Core
             {
                 snapshot = JsonConvert.DeserializeObject<SnapshotGraph<T>>(fileContent);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ModelException("File doesn't meet required structure");
             }
@@ -109,7 +109,7 @@ namespace Czu.OrientedGraph.Core
             {
                 File.Delete(GetFilePath(name));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ModelException("File cannot be deleted");
             }
