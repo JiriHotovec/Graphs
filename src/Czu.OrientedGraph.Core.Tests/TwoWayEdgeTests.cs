@@ -61,6 +61,27 @@ namespace Czu.OrientedGraph.Core.Tests
             vertex1.GetHashCode().Should().Be(vertex2.GetHashCode());
         }
 
+        [Fact]
+        public void SwitchVertices_Input_ReturnsEdge()
+        {
+            var edge = new TwoWayEdge(new Vertex("Name1"), new Vertex("Name2"));
+            var expected = new TwoWayEdge(new Vertex("Name2"), new Vertex("Name1"));
+
+            var actual = edge.SwitchVertices();
+
+            actual.Source.Should().Be(expected.Source);
+            actual.Destination.Should().Be(expected.Destination);
+        }
+
+        [Theory]
+        [MemberData(nameof(GetHasRelationData))]
+        public void HasRelation_EdgeInput_Returns(TwoWayEdge left, TwoWayEdge right, bool expected)
+        {
+            var actual = left.HasRelation(right);
+
+            actual.Should().Be(expected);
+        }
+
         public static IEnumerable<object[]> GetValidInputData() =>
             new[]
             {
@@ -105,6 +126,35 @@ namespace Czu.OrientedGraph.Core.Tests
                     new TwoWayEdge(new Vertex("Name3"), new Vertex("Name2")),
                     false
                 }
+            };
+
+        public static IEnumerable<object[]> GetHasRelationData() =>
+            new[]
+            {
+                new object[]
+                {
+                    new TwoWayEdge(new Vertex("Name1"), new Vertex("Name2")),
+                    new TwoWayEdge(new Vertex("Name2"), new Vertex("Name1")),
+                    true
+                },
+                new object[]
+                {
+                    new TwoWayEdge(new Vertex("Name1"), new Vertex("Name2")),
+                    new TwoWayEdge(new Vertex("Name1"), new Vertex("Name2")),
+                    true
+                },
+                new object[]
+                {
+                    new TwoWayEdge(new Vertex("Name1"), new Vertex("Name2")),
+                    new TwoWayEdge(new Vertex("Name2"), new Vertex("Name3")),
+                    true
+                },
+                new object[]
+                {
+                    new TwoWayEdge(new Vertex("Name1"), new Vertex("Name2")),
+                    new TwoWayEdge(new Vertex("Name3"), new Vertex("Name4")),
+                    false
+                },
             };
     }
 }
