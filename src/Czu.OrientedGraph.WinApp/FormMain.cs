@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Czu.OrientedGraph.WinApp.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace Czu.OrientedGraph.WinApp
         public FormMain()
         {
             InitializeComponent();
+        }
+
+        private void menuItemHelpAbout_Click(object sender, EventArgs e)
+        {
+            var aboutBox = new AboutBox();
+            aboutBox.Show();
         }
     }
 }

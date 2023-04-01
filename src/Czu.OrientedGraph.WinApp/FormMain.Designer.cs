@@ -47,58 +47,59 @@
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // mainMenu
-            //
+            // 
             this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemFile,
             this.menuItemHelp});
-            //
+            // 
             // menuItemFile
-            //
+            // 
             this.menuItemFile.Index = 0;
             this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemFileNew,
             this.menuItemFileOpen,
             this.menuItemFileSave});
             this.menuItemFile.Text = "File";
-            //
+            // 
             // menuItemFileNew
-            //
+            // 
             this.menuItemFileNew.Index = 0;
             this.menuItemFileNew.Text = "New";
-            //
+            // 
             // menuItemFileOpen
-            //
+            // 
             this.menuItemFileOpen.Index = 1;
             this.menuItemFileOpen.Text = "Open";
-            //
+            // 
             // menuItemFileSave
-            //
+            // 
             this.menuItemFileSave.Index = 2;
             this.menuItemFileSave.Text = "Save";
-            //
+            // 
             // menuItemHelp
-            //
+            // 
             this.menuItemHelp.Index = 1;
             this.menuItemHelp.MdiList = true;
             this.menuItemHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemHelpView,
             this.menuItemHelpAbout});
             this.menuItemHelp.Text = "Help";
-            //
+            // 
             // menuItemHelpView
-            //
+            // 
             this.menuItemHelpView.Index = 0;
             this.menuItemHelpView.Text = "View Help";
-            //
+            // 
             // menuItemHelpAbout
-            //
+            // 
             this.menuItemHelpAbout.Index = 1;
             this.menuItemHelpAbout.Text = "About Application";
-            //
+            this.menuItemHelpAbout.Click += new System.EventHandler(this.menuItemHelpAbout_Click);
+            // 
             // splitContainerGraph
-            //
+            // 
             this.splitContainerGraph.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerGraph.Location = new System.Drawing.Point(0, 0);
             this.splitContainerGraph.Name = "splitContainerGraph";
@@ -107,25 +108,25 @@
             this.splitContainerGraph.Size = new System.Drawing.Size(784, 300);
             this.splitContainerGraph.SplitterDistance = 185;
             this.splitContainerGraph.TabIndex = 0;
-            //
+            // 
             // splitContainerMain
-            //
+            // 
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerMain.Location = new System.Drawing.Point(0, 0);
             this.splitContainerMain.Name = "splitContainerMain";
             this.splitContainerMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            //
+            // 
             // splitContainerMain.Panel1
-            //
+            // 
             this.splitContainerMain.Panel1.Controls.Add(this.splitContainerGraph);
             this.splitContainerMain.Panel1MinSize = 300;
             this.splitContainerMain.Panel2MinSize = 0;
             this.splitContainerMain.Size = new System.Drawing.Size(784, 361);
             this.splitContainerMain.SplitterDistance = 300;
             this.splitContainerMain.TabIndex = 0;
-            //
+            // 
             // FormMain
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 361);
