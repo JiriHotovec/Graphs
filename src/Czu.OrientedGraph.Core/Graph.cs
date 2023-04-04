@@ -11,12 +11,14 @@ namespace Czu.OrientedGraph.Core
 
         private readonly HashSet<T> _edges = new HashSet<T>();
 
+        private GraphName _name;
+
         public Graph(GraphName name)
         {
-            Name = name ?? throw new ArgumentNullException(nameof(name));
+            _name = name ?? throw new ArgumentNullException(nameof(name));
         }
 
-        public GraphName Name { get; }
+        public string Name => _name;
 
         public SnapshotGraph<T> ToSnapshot() =>
             new SnapshotGraph<T>(Name, _edges.ToArray());
@@ -36,6 +38,9 @@ namespace Czu.OrientedGraph.Core
 
             return graph;
         }
+
+        public void Rename(GraphName name) =>
+            _name = name ?? throw new ArgumentNullException(nameof(name));
 
         public void UpsertEdge(T edge)
         {

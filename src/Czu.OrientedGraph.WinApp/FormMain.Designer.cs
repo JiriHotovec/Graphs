@@ -41,6 +41,7 @@
             this.menuItemHelpAbout = new System.Windows.Forms.MenuItem();
             this.splitContainerGraph = new System.Windows.Forms.SplitContainer();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.menuItemExit = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerGraph)).BeginInit();
             this.splitContainerGraph.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -60,7 +61,8 @@
             this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemFileNew,
             this.menuItemFileOpen,
-            this.menuItemFileSave});
+            this.menuItemFileSave,
+            this.menuItemExit});
             this.menuItemFile.Text = "File";
             // 
             // menuItemFileNew
@@ -125,6 +127,12 @@
             this.splitContainerMain.SplitterDistance = 300;
             this.splitContainerMain.TabIndex = 0;
             // 
+            // menuItemExit
+            // 
+            this.menuItemExit.Index = 3;
+            this.menuItemExit.Text = "Exit";
+            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,5 +165,6 @@
         private System.Windows.Forms.MenuItem menuItemHelpAbout;
         private System.Windows.Forms.SplitContainer splitContainerGraph;
         private System.Windows.Forms.SplitContainer splitContainerMain;
+        private System.Windows.Forms.MenuItem menuItemExit;
     }
 }
