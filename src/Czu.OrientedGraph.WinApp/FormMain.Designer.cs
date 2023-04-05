@@ -36,12 +36,12 @@
             this.menuItemFileNew = new System.Windows.Forms.MenuItem();
             this.menuItemFileOpen = new System.Windows.Forms.MenuItem();
             this.menuItemFileSave = new System.Windows.Forms.MenuItem();
+            this.menuItemExit = new System.Windows.Forms.MenuItem();
             this.menuItemHelp = new System.Windows.Forms.MenuItem();
             this.menuItemHelpView = new System.Windows.Forms.MenuItem();
             this.menuItemHelpAbout = new System.Windows.Forms.MenuItem();
             this.splitContainerGraph = new System.Windows.Forms.SplitContainer();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.menuItemExit = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerGraph)).BeginInit();
             this.splitContainerGraph.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -69,16 +69,25 @@
             // 
             this.menuItemFileNew.Index = 0;
             this.menuItemFileNew.Text = "New";
+            this.menuItemFileNew.Click += new System.EventHandler(this.menuItemFileNew_Click);
             // 
             // menuItemFileOpen
             // 
             this.menuItemFileOpen.Index = 1;
             this.menuItemFileOpen.Text = "Open";
+            this.menuItemFileOpen.Click += new System.EventHandler(this.menuItemFileOpen_Click);
             // 
             // menuItemFileSave
             // 
             this.menuItemFileSave.Index = 2;
             this.menuItemFileSave.Text = "Save";
+            this.menuItemFileSave.Click += new System.EventHandler(this.menuItemFileSave_Click);
+            // 
+            // menuItemExit
+            // 
+            this.menuItemExit.Index = 3;
+            this.menuItemExit.Text = "Exit";
+            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
             // menuItemHelp
             // 
@@ -127,12 +136,6 @@
             this.splitContainerMain.SplitterDistance = 300;
             this.splitContainerMain.TabIndex = 0;
             // 
-            // menuItemExit
-            // 
-            this.menuItemExit.Index = 3;
-            this.menuItemExit.Text = "Exit";
-            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +146,7 @@
             this.Menu = this.mainMenu;
             this.MinimumSize = new System.Drawing.Size(800, 400);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Graph";
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerGraph)).EndInit();
             this.splitContainerGraph.ResumeLayout(false);

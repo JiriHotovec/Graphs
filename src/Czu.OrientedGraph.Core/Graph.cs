@@ -18,7 +18,7 @@ namespace Czu.OrientedGraph.Core
             _name = name ?? throw new ArgumentNullException(nameof(name));
         }
 
-        public string Name => _name;
+        public GraphName Name => _name;
 
         public SnapshotGraph<T> ToSnapshot() =>
             new SnapshotGraph<T>(Name, _edges.ToArray());
