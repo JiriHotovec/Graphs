@@ -55,7 +55,7 @@ New storage could be implemented by interface *IGraphStorage*.
 
 ### Saved File Directory
 
-All saved graphs are stored under application root folder *./SavedGraphs*
+All saved graphs are stored under application root folder *./SavedGraphs*. If folder doesn't exist then new one will be created when you saved the graph.
 
 ### Json File Structure
 
