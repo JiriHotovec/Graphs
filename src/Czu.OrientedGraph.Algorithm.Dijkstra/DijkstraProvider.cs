@@ -108,7 +108,6 @@ namespace Czu.OrientedGraph.Algorithm.Dijkstra
         private ParentPath GetMinPath(ICollection<ParentPath> sources)
         {
             var sourceVertices = sources.Select(s => s.CurrentVertex).ToArray();
-
             var edges = GetAllRelatedEdges(sourceVertices).ToList();
 
             var vNeightbours = new List<Vertex>();

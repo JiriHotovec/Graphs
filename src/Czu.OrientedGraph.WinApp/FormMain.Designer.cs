@@ -102,6 +102,7 @@
             // 
             this.menuItemHelpView.Index = 0;
             this.menuItemHelpView.Text = "View Help";
+            this.menuItemHelpView.Click += new System.EventHandler(this.menuItemHelpView_Click);
             // 
             // menuItemHelpAbout
             // 

@@ -1,6 +1,7 @@
 ﻿using Czu.OrientedGraph.Core;
 using Czu.OrientedGraph.WinApp.Controls;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Czu.OrientedGraph.WinApp
@@ -86,6 +87,11 @@ namespace Czu.OrientedGraph.WinApp
             }
 
             await _graphStorage.UpsertAsync(_graph.ToSnapshot());
+        }
+
+        private void menuItemHelpView_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/JiriHotovec/OrientedGraph#readme");
         }
     }
 }
