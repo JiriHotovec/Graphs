@@ -33,7 +33,7 @@ namespace Czu.OrientedGraph.Core
 
         public bool Equals(Vertex other)
         {
-            return string.Equals(Name, other.Name, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(Name, other?.Name, StringComparison.OrdinalIgnoreCase);
         }
 
         public override bool Equals(object obj)
@@ -48,12 +48,12 @@ namespace Czu.OrientedGraph.Core
 
         public static bool operator ==(Vertex left, Vertex right)
         {
-            return left.Equals(right);
+            return left?.Equals(right) ?? false;
         }
 
         public static bool operator !=(Vertex left, Vertex right)
         {
-            return !left.Equals(right);
+            return !left?.Equals(right) ?? false;
         }
     }
 }

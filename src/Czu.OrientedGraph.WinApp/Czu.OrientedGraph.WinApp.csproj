@@ -116,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Czu.OrientedGraph.Algorithm.Dijkstra\Czu.OrientedGraph.Algorithm.Dijkstra.csproj">
+      <Project>{5aa0f352-c3e9-4f2b-a649-1d46f2e407b8}</Project>
+      <Name>Czu.OrientedGraph.Algorithm.Dijkstra</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Czu.OrientedGraph.Core\Czu.OrientedGraph.Core.csproj">
       <Project>{2d2dad15-fac6-45b7-bda7-34fdd1c3d676}</Project>
       <Name>Czu.OrientedGraph.Core</Name>

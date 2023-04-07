@@ -29,6 +29,11 @@ namespace Czu.OrientedGraph.WinApp
             graphUc.Dock = DockStyle.Fill;
             this.splitContainerGraph.Panel1.Controls.Clear();
             this.splitContainerGraph.Panel1.Controls.Add(graphUc);
+
+            var dijkstraUc = new UserControlDijkstra(graph);
+            dijkstraUc.Dock = DockStyle.Left;
+            this.splitContainerGraph.Panel2.Controls.Clear();
+            this.splitContainerGraph.Panel2.Controls.Add(dijkstraUc);
         }
 
         private void menuItemHelpAbout_Click(object sender, EventArgs e)
@@ -70,7 +75,7 @@ namespace Czu.OrientedGraph.WinApp
                 var result = MessageBox.Show(
                     "Saved graph with the same name already exists." +
                     Environment.NewLine +
-                    "Would you like to rewrite the file?",
+                    "Would you like to overwrite the file?",
                     "Graph already exists",
                     MessageBoxButtons.OKCancel);
 
