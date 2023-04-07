@@ -26,7 +26,7 @@ namespace Czu.OrientedGraph.Core
         public Weight Weight { get; }
 
         /// <inheritdoc />
-        public override string ToString() => $"{Weight} ({Source}, {Destination})";
+        public override string ToString() => $"({Source}, {Destination}) {Weight}";
 
         /// <inheritdoc />
         public override IEdge SwitchVertices() =>
