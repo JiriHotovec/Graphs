@@ -9,12 +9,23 @@ using Newtonsoft.Json;
 
 namespace Czu.OrientedGraph.Core
 {
+    /// <summary>
+    /// An object to store graph as json file under root folder ./SavedGraphs
+    /// </summary>
+    /// <typeparam name="T">Generic type that implements IEdge interface</typeparam>
     public sealed class GraphJsonFileStorage<T> : IGraphStorage<T> where T : IEdge
     {
         private const string FolderName = "SavedGraphs";
         private const string GraphNameSeparator = " ";
         private const string FileNameSeparator = "_";
 
+        /// <summary>
+        /// Async method create or update graph snapshot json file
+        /// </summary>
+        /// <param name="snapshot">Snapshot of graph</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns Task</returns>
+        /// <exception cref="ArgumentNullException">Parameter cannot be null</exception>
         public Task UpsertAsync(SnapshotGraph<T> snapshot, CancellationToken cancellationToken = default)
         {
             if (snapshot is null)
@@ -27,7 +38,73 @@ namespace Czu.OrientedGraph.Core
             return UpsertAsync(snapshot, filePath, cancellationToken);
         }
 
-        public Task UpsertAsync(SnapshotGraph<T> snapshot, string filePath, CancellationToken cancellationToken = default)
+        /// <summary>
+        /// Async method returns snapshot of graph from json file
+        /// </summary>
+        /// <param name="name">Graph name</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns snapshot of graph</returns>
+        /// <exception cref="ArgumentNullException">Parameter cannot be null</exception>
+        public Task<SnapshotGraph<T>> GetAsync(GraphName name, CancellationToken cancellationToken = default)
+        {
+            if (name is null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            var filePath = GetFilePath(name);
+
+            return GetAsync(filePath, cancellationToken);
+        }
+
+        /// <summary>
+        /// Async method returns graph names of all saved json files under root folder ./SavedGraphs
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns graph names</returns>
+        public Task<IEnumerable<GraphName>> GetAllGraphNamesAsync(CancellationToken cancellationToken = default) =>
+            Task.FromResult(Directory.GetFiles(GetDirectoryPath()).Select(GetGraphNameFromFileName));
+
+        /// <summary>
+        /// Async method deletes snapshot json file by graph name
+        /// </summary>
+        /// <param name="name">Graph name</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns Task</returns>
+        /// <exception cref="ArgumentNullException">Parameter cannot be null</exception>
+        /// <exception cref="ModelException">Custom exception for model validation</exception>
+        public Task DeleteAsync(GraphName name, CancellationToken cancellationToken = default)
+        {
+            if (name is null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            try
+            {
+                File.Delete(GetFilePath(name));
+            }
+            catch (Exception)
+            {
+                throw new ModelException("File cannot be deleted");
+            }
+
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// Async method returns state if file exists
+        /// </summary>
+        /// <param name="name">Graph name</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Return value true if file already exists otherwise false</returns>
+        /// <exception cref="ArgumentNullException">Parameter cannot be null</exception>
+        public Task<bool> ExistsAsync(GraphName name, CancellationToken cancellationToken = default) =>
+            name != null
+                ? Task.FromResult(File.Exists(GetFilePath(name)))
+                : throw new ArgumentNullException(nameof(name));
+
+        private Task UpsertAsync(SnapshotGraph<T> snapshot, string filePath, CancellationToken cancellationToken = default)
         {
             if (snapshot is null)
             {
@@ -53,19 +130,7 @@ namespace Czu.OrientedGraph.Core
             return Task.CompletedTask;
         }
 
-        public Task<SnapshotGraph<T>> GetAsync(GraphName name, CancellationToken cancellationToken = default)
-        {
-            if (name is null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
-
-            var filePath = GetFilePath(name);
-
-            return GetAsync(filePath, cancellationToken);
-        }
-
-        public Task<SnapshotGraph<T>> GetAsync(string filePath, CancellationToken cancellationToken = default)
+        private Task<SnapshotGraph<T>> GetAsync(string filePath, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(filePath))
             {
@@ -94,33 +159,6 @@ namespace Czu.OrientedGraph.Core
 
             return Task.FromResult(snapshot);
         }
-
-        public Task<IEnumerable<GraphName>> GetAllGraphNamesAsync(CancellationToken cancellationToken = default) =>
-            Task.FromResult(Directory.GetFiles(GetDirectoryPath()).Select(GetGraphNameFromFileName));
-
-        public Task DeleteAsync(GraphName name, CancellationToken cancellationToken = default)
-        {
-            if (name is null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
-
-            try
-            {
-                File.Delete(GetFilePath(name));
-            }
-            catch (Exception)
-            {
-                throw new ModelException("File cannot be deleted");
-            }
-
-            return Task.CompletedTask;
-        }
-
-        public Task<bool> ExistsAsync(GraphName name, CancellationToken cancellationToken = default) =>
-            name != null
-                ? Task.FromResult(File.Exists(GetFilePath(name)))
-                : throw new ArgumentNullException(nameof(name));
 
         private void TryCreateDirectory()
         {

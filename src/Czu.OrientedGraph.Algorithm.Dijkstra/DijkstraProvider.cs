@@ -8,10 +8,19 @@ using Czu.OrientedGraph.Core.Exceptions;
 
 namespace Czu.OrientedGraph.Algorithm.Dijkstra
 {
+    /// <summary>
+    /// Object to provide Dijkstra's algorithm
+    /// </summary>
     public class DijkstraProvider : IDijkstraProvider
     {
         private readonly ICollection<IWeightedEdge> _edges;
 
+        /// <summary>
+        /// Parametrized ctor
+        /// </summary>
+        /// <param name="edges">Collection of edges which is used to find way through</param>
+        /// <exception cref="ArgumentNullException">Parameter cannot be null</exception>
+        /// <exception cref="ModelException">Custom exception for model validation</exception>
         public DijkstraProvider(ICollection<IWeightedEdge> edges)
         {
             _edges = edges ?? throw new ArgumentNullException(nameof(edges));
@@ -21,6 +30,14 @@ namespace Czu.OrientedGraph.Algorithm.Dijkstra
             }
         }
 
+        /// <summary>
+        /// Method returns shortest way through the graph
+        /// </summary>
+        /// <param name="source">Vertex source - start position</param>
+        /// <param name="destination">Vertex destination - end position</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Result includes a shortest path</returns>
+        /// <exception cref="ArgumentNullException">Parameters cannot be null</exception>
         public Task<IPathResult> GetShortestPathAsync(
             Vertex source,
             Vertex destination,

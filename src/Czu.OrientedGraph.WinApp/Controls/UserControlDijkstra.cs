@@ -7,6 +7,9 @@ using Czu.OrientedGraph.Core;
 
 namespace Czu.OrientedGraph.WinApp.Controls
 {
+    /// <summary>
+    /// User control provides user interface for Dijkstra's algorithm
+    /// </summary>
     public partial class UserControlDijkstra : UserControl
     {
         private readonly Graph<WeightedTwoWayEdge> _graph;
@@ -16,6 +19,11 @@ namespace Czu.OrientedGraph.WinApp.Controls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Parametrized ctor
+        /// </summary>
+        /// <param name="graph">Graph object</param>
+        /// <exception cref="ArgumentNullException">Parameter cannot be null</exception>
         public UserControlDijkstra(Graph<WeightedTwoWayEdge> graph)
             : this()
         {

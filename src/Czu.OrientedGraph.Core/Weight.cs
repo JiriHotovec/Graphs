@@ -4,11 +4,26 @@ using Czu.OrientedGraph.Core.Exceptions;
 
 namespace Czu.OrientedGraph.Core
 {
+    /// <summary>
+    /// Immutable value object that represents edge's weight
+    /// </summary>
     public sealed class Weight : IEquatable<Weight>, IComparable<Weight>, IComparable
     {
+        /// <summary>
+        /// Min. limit of weight value
+        /// </summary>
         public const int WeightMin = 0;
+
+        /// <summary>
+        /// Max. limit of weight value
+        /// </summary>
         public const int WeightMax = 1000;
 
+        /// <summary>
+        /// Parametrized ctor
+        /// </summary>
+        /// <param name="value">Weight value</param>
+        /// <exception cref="ModelException">Custom exception for model validation</exception>
         public Weight(int value = WeightMin)
         {
             if (value < WeightMin || value > WeightMax)
@@ -19,8 +34,12 @@ namespace Czu.OrientedGraph.Core
             Value = value;
         }
 
+        /// <summary>
+        /// Weight value
+        /// </summary>
         public int Value { get; }
 
+        /// <inheritdoc />
         public override string ToString() => $"{Value}";
 
         public static implicit operator int(Weight weight)
@@ -28,16 +47,19 @@ namespace Czu.OrientedGraph.Core
             return weight.Value;
         }
 
+        /// <inheritdoc />
         public bool Equals(Weight other)
         {
             return Value == other?.Value;
         }
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             return obj is Weight other && Equals(other);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             return Value;
@@ -53,6 +75,7 @@ namespace Czu.OrientedGraph.Core
             return !left?.Equals(right) ?? false;
         }
 
+        /// <inheritdoc />
         public int CompareTo(Weight other)
         {
             if (ReferenceEquals(this, other)) return 0;
@@ -60,6 +83,7 @@ namespace Czu.OrientedGraph.Core
             return Value.CompareTo(other.Value);
         }
 
+        /// <inheritdoc />
         public int CompareTo(object obj)
         {
             if (ReferenceEquals(null, obj)) return 1;

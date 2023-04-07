@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace Czu.OrientedGraph.WinApp.Controls
 {
+    /// <summary>
+    /// User control provides user interface for graph
+    /// </summary>
     public partial class UserControlGraph : UserControl
     {
         private readonly Graph<WeightedTwoWayEdge> _graph;
@@ -14,12 +17,39 @@ namespace Czu.OrientedGraph.WinApp.Controls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Parametrized ctor
+        /// </summary>
+        /// <param name="graph">Graph object</param>
+        /// <exception cref="ArgumentNullException">Parameter cannot be null</exception>
         public UserControlGraph(Graph<WeightedTwoWayEdge> graph)
             : this()
         {
             _graph = graph ?? throw new ArgumentNullException(nameof(graph));
 
             RefreshUI();
+        }
+
+        /// <summary>
+        /// Refresh control items
+        /// </summary>
+        public void RefreshUI()
+        {
+            this.textBoxName.Text = _graph.Name;
+            this.listBoxEdges.DataSource = _graph.GetEdges().ToList();
+            this.comboBoxVertexSource.DataSource =
+                _graph
+                    .GetVertices()
+                    .OrderBy(o => o.Name)
+                    .ToList();
+            this.comboBoxVertexSource.Text = string.Empty;
+            this.comboBoxVertexDestination.DataSource =
+                _graph
+                    .GetVertices()
+                    .OrderBy(o => o.Name)
+                    .ToList();
+            this.comboBoxVertexDestination.Text = string.Empty;
+            this.numericUpDownWeight.Value = this.numericUpDownWeight.Minimum;
         }
 
         private void buttonUpsert_Click(object sender, EventArgs e)
@@ -50,25 +80,6 @@ namespace Czu.OrientedGraph.WinApp.Controls
                 new Vertex(vSrc),
                 new Vertex(vDst),
                 new Weight(weight));
-
-        public void RefreshUI()
-        {
-            this.textBoxName.Text = _graph.Name;
-            this.listBoxEdges.DataSource = _graph.GetEdges().ToList();
-            this.comboBoxVertexSource.DataSource =
-                _graph
-                    .GetVertices()
-                    .OrderBy(o => o.Name)
-                    .ToList();
-            this.comboBoxVertexSource.Text = string.Empty;
-            this.comboBoxVertexDestination.DataSource =
-                _graph
-                    .GetVertices()
-                    .OrderBy(o => o.Name)
-                    .ToList();
-            this.comboBoxVertexDestination.Text = string.Empty;
-            this.numericUpDownWeight.Value = this.numericUpDownWeight.Minimum;
-        }
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {

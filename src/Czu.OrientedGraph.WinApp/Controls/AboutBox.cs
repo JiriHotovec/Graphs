@@ -4,8 +4,14 @@ using System.Windows.Forms;
 
 namespace Czu.OrientedGraph.WinApp.Controls
 {
-    partial class AboutBox : Form
+    /// <summary>
+    /// About box includes assembly information
+    /// </summary>
+    public partial class AboutBox : Form
     {
+        /// <summary>
+        /// Ctor
+        /// </summary>
         public AboutBox()
         {
             InitializeComponent();
@@ -19,7 +25,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
 
         #region Assembly Attribute Accessors
 
-        public string AssemblyTitle
+        private string AssemblyTitle
         {
             get
             {
@@ -36,7 +42,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             }
         }
 
-        public string AssemblyVersion
+        private string AssemblyVersion
         {
             get
             {
@@ -44,7 +50,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             }
         }
 
-        public string AssemblyDescription
+        private string AssemblyDescription
         {
             get
             {
@@ -57,7 +63,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             }
         }
 
-        public string AssemblyProduct
+        private string AssemblyProduct
         {
             get
             {
@@ -70,7 +76,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             }
         }
 
-        public string AssemblyCopyright
+        private string AssemblyCopyright
         {
             get
             {
@@ -83,7 +89,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             }
         }
 
-        public string AssemblyCompany
+        private string AssemblyCompany
         {
             get
             {

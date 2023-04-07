@@ -3,21 +3,18 @@ using Czu.OrientedGraph.Core.Exceptions;
 
 namespace Czu.OrientedGraph.Core
 {
+    /// <summary>
+    /// Edge (A, B) = (B, A)
+    /// </summary>
     public class TwoWayEdge : IEdge, IEquatable<TwoWayEdge>
     {
-        public Vertex Source { get; }
-
-        public Vertex Destination { get; }
-
-        public virtual IEdge SwitchVertices() =>
-            new TwoWayEdge(Destination, Source);
-
-        public bool HasRelation(IEdge other) =>
-            Source == other.Source ||
-            Source == other.Destination ||
-            Destination == other.Source ||
-            Destination == other.Destination;
-
+        /// <summary>
+        /// Parametrized ctor
+        /// </summary>
+        /// <param name="source">Vertex source</param>
+        /// <param name="destination">Vertex destination</param>
+        /// <exception cref="ModelException">Custom exception for model validation</exception>
+        /// <exception cref="ArgumentNullException">Parameter cannot be null</exception>
         public TwoWayEdge(Vertex source, Vertex destination)
         {
             if (source == destination)
@@ -29,8 +26,27 @@ namespace Czu.OrientedGraph.Core
             Destination = destination ?? throw new ArgumentNullException(nameof(destination));
         }
 
+        /// <inheritdoc />
+        public Vertex Source { get; }
+
+        /// <inheritdoc />
+        public Vertex Destination { get; }
+
+        /// <inheritdoc />
+        public virtual IEdge SwitchVertices() =>
+            new TwoWayEdge(Destination, Source);
+
+        /// <inheritdoc />
+        public bool HasRelation(IEdge other) =>
+            Source == other.Source ||
+            Source == other.Destination ||
+            Destination == other.Source ||
+            Destination == other.Destination;
+
+        /// <inheritdoc />
         public override string ToString() => $"({Source}, {Destination})";
 
+        /// <inheritdoc />
         public bool Equals(TwoWayEdge other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -39,6 +55,7 @@ namespace Czu.OrientedGraph.Core
                    Source.Equals(other.Destination) && Destination.Equals(other.Source);
         }
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -47,6 +64,7 @@ namespace Czu.OrientedGraph.Core
             return Equals((TwoWayEdge)obj);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked

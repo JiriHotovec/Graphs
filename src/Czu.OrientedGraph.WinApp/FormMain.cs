@@ -6,12 +6,18 @@ using System.Windows.Forms;
 
 namespace Czu.OrientedGraph.WinApp
 {
+    /// <summary>
+    /// Main form of application
+    /// </summary>
     public partial class FormMain : Form
     {
         private Graph<WeightedTwoWayEdge> _graph;
         private IGraphStorage<WeightedTwoWayEdge> _graphStorage =
             new GraphJsonFileStorage<WeightedTwoWayEdge>();
 
+        /// <summary>
+        /// Ctor
+        /// </summary>
         public FormMain()
         {
             InitializeComponent();
