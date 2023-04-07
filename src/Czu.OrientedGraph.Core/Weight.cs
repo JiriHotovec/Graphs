@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Czu.OrientedGraph.Core.Exceptions;
 
 namespace Czu.OrientedGraph.Core
 {
-    public sealed class Weight : IEquatable<Weight>
+    public sealed class Weight : IEquatable<Weight>, IComparable<Weight>, IComparable
     {
-        public const int WeightMin = 1;
+        public const int WeightMin = 0;
         public const int WeightMax = 1000;
 
         public Weight(int value = WeightMin)
@@ -50,6 +51,40 @@ namespace Czu.OrientedGraph.Core
         public static bool operator !=(Weight left, Weight right)
         {
             return !left?.Equals(right) ?? false;
+        }
+
+        public int CompareTo(Weight other)
+        {
+            if (ReferenceEquals(this, other)) return 0;
+            if (ReferenceEquals(null, other)) return 1;
+            return Value.CompareTo(other.Value);
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return 1;
+            if (ReferenceEquals(this, obj)) return 0;
+            return obj is Weight other ? CompareTo(other) : throw new ArgumentException($"Object must be of type {nameof(Weight)}");
+        }
+
+        public static bool operator <(Weight left, Weight right)
+        {
+            return Comparer<Weight>.Default.Compare(left, right) < 0;
+        }
+
+        public static bool operator >(Weight left, Weight right)
+        {
+            return Comparer<Weight>.Default.Compare(left, right) > 0;
+        }
+
+        public static bool operator <=(Weight left, Weight right)
+        {
+            return Comparer<Weight>.Default.Compare(left, right) <= 0;
+        }
+
+        public static bool operator >=(Weight left, Weight right)
+        {
+            return Comparer<Weight>.Default.Compare(left, right) >= 0;
         }
     }
 }

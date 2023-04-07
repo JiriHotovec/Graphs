@@ -51,20 +51,6 @@ namespace Czu.OrientedGraph.Core.Tests
             actual.Should().Throw<ModelException>();
         }
 
-        [Fact]
-        public void UpsertEdge_VertexWithoutRelation_ThrowsModelException()
-        {
-            var graph = new Graph<TwoWayEdge>(new GraphName("Name"));
-            graph.UpsertEdge(new TwoWayEdge(new Vertex("Vertex1"), new Vertex("Vertex2")));
-
-            Action actual = () =>
-            {
-                graph.UpsertEdge(new TwoWayEdge(new Vertex("Vertex3"), new Vertex("Vertex4")));
-            };
-
-            actual.Should().Throw<ModelException>();
-        }
-
         [Theory]
         [MemberData(nameof(GetValidTwoWayEdges))]
         public void UpsertEdge_ValidTwoWayEdges_ReturnsCount(IEnumerable<TwoWayEdge> inputs, int expected)

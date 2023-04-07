@@ -29,7 +29,7 @@ namespace Czu.OrientedGraph.WinApp
                     MessageBox.Show(e.Exception.Message, "Validation message");
                     break;
                 default:
-                    MessageBox.Show(e.Exception.Message, "Unhandled exception");
+                    MessageBox.Show(e.Exception.Message, "Error");
                     break;
             }
         }

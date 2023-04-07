@@ -54,11 +54,6 @@ namespace Czu.OrientedGraph.Core
                 throw new ModelException($"You have exceeded maximum number ({MaxEdges}) of edges in graph");
             }
 
-            if (_edges.Any() && !ExistsRelation(edge))
-            {
-                throw new ModelException($"You have to add edge to existed vertices");
-            }
-
             TryDeleteEdge(edge);
 
             _edges.Add(edge);
@@ -71,10 +66,12 @@ namespace Czu.OrientedGraph.Core
                 throw new ArgumentNullException(nameof(edge));
             }
 
-            if (_edges.Contains(edge))
+            if (!_edges.Contains(edge))
             {
-                _edges.Remove(edge);
+                return;
             }
+
+            _edges.Remove(edge);
         }
 
         public IEnumerable<T> GetEdges() => _edges.ToArray();
@@ -100,10 +97,5 @@ namespace Czu.OrientedGraph.Core
 
             UpsertEdge((T)edge.SwitchVertices());
         }
-
-        public bool ExistsRelation(T edge) =>
-            edge == null
-                ? throw new ArgumentNullException(nameof(edge))
-                : _edges.Any(s => s.HasRelation(edge));
     }
 }
