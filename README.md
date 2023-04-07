@@ -2,6 +2,11 @@
 
 Desktop application for finding the shortest path in weighted graph using Dijkstra's algorithm.
 
+## Prerequisite
+
+* Windows
+* .NET Framework 4.7.2 Runtime
+
 ## Usage
 
 ### Application start
