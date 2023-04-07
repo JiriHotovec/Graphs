@@ -58,6 +58,12 @@
     <Compile Include="Controls\DialogGraphStorage.Designer.cs">
       <DependentUpon>DialogGraphStorage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UserControlDijkstra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControlDijkstra.Designer.cs">
+      <DependentUpon>UserControlDijkstra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UserControlGraph.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\DialogGraphStorage.resx">
       <DependentUpon>DialogGraphStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserControlDijkstra.resx">
+      <DependentUpon>UserControlDijkstra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UserControlGraph.resx">
       <DependentUpon>UserControlGraph.cs</DependentUpon>
