@@ -13,7 +13,7 @@ Desktop application for finding the shortest path in weighted graph using Dijkst
 * WinForms
 * File storage
 * Linq to Objects
-* Value Objects
+* Immutable Value Objects
 * Code covered by Unit Tests
 * Recursion call
 * Components implement interfaces
