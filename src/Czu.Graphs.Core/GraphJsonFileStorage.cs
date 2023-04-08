@@ -63,7 +63,9 @@ namespace Czu.Graphs.Core
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Returns graph names</returns>
         public Task<IEnumerable<GraphName>> GetAllGraphNamesAsync(CancellationToken cancellationToken = default) =>
-            Task.FromResult(Directory.GetFiles(GetDirectoryPath()).Select(GetGraphNameFromFileName));
+            Directory.Exists(GetDirectoryPath())
+                ? Task.FromResult(Directory.GetFiles(GetDirectoryPath()).Select(GetGraphNameFromFileName))
+                : Task.FromResult(Enumerable.Empty<GraphName>());
 
         /// <summary>
         /// Async method deletes snapshot json file by graph name
