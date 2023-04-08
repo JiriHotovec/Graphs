@@ -14,6 +14,7 @@ namespace Czu.OrientedGraph.WinApp
         private Graph<WeightedTwoWayEdge> _graph;
         private IGraphStorage<WeightedTwoWayEdge> _graphStorage =
             new GraphJsonFileStorage<WeightedTwoWayEdge>();
+        private UserControlDijkstra _ucDijkstra;
 
         /// <summary>
         /// Ctor
@@ -34,13 +35,14 @@ namespace Czu.OrientedGraph.WinApp
 
             var graphUc = new UserControlGraph(graph);
             graphUc.Dock = DockStyle.Fill;
+            graphUc.OnRefreshedUI = OnGraphChanged;
             this.splitContainerGraph.Panel1.Controls.Clear();
             this.splitContainerGraph.Panel1.Controls.Add(graphUc);
 
-            var dijkstraUc = new UserControlDijkstra(graph);
-            dijkstraUc.Dock = DockStyle.Left;
+            _ucDijkstra = new UserControlDijkstra(graph);
+            _ucDijkstra.Dock = DockStyle.Left;
             this.splitContainerGraph.Panel2.Controls.Clear();
-            this.splitContainerGraph.Panel2.Controls.Add(dijkstraUc);
+            this.splitContainerGraph.Panel2.Controls.Add(_ucDijkstra);
         }
 
         private void menuItemHelpAbout_Click(object sender, EventArgs e)
@@ -100,6 +102,11 @@ namespace Czu.OrientedGraph.WinApp
         private void menuItemHelpView_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/JiriHotovec/OrientedGraph#readme");
+        }
+
+        private void OnGraphChanged()
+        {
+            _ucDijkstra?.RefreshUI();
         }
     }
 }

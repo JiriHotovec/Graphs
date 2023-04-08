@@ -141,6 +141,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.listBoxEdges.Name = "listBoxEdges";
             this.listBoxEdges.Size = new System.Drawing.Size(174, 225);
             this.listBoxEdges.TabIndex = 6;
+            this.listBoxEdges.Click += new System.EventHandler(this.listBoxEdges_Click);
             // 
             // labelName
             // 

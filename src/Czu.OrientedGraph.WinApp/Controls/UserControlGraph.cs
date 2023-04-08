@@ -31,6 +31,11 @@ namespace Czu.OrientedGraph.WinApp.Controls
         }
 
         /// <summary>
+        /// Action called on RefreshUI method
+        /// </summary>
+        public Action OnRefreshedUI { get; set; }
+
+        /// <summary>
         /// Refresh control items
         /// </summary>
         public void RefreshUI()
@@ -50,6 +55,8 @@ namespace Czu.OrientedGraph.WinApp.Controls
                     .ToList();
             this.comboBoxVertexDestination.Text = string.Empty;
             this.numericUpDownWeight.Value = this.numericUpDownWeight.Minimum;
+
+            OnRefreshedUI?.Invoke();
         }
 
         private void buttonUpsert_Click(object sender, EventArgs e)
@@ -88,6 +95,19 @@ namespace Czu.OrientedGraph.WinApp.Controls
                 : new GraphName(this.textBoxName.Text);
 
             _graph.Rename(name);
+        }
+
+        private void listBoxEdges_Click(object sender, EventArgs e)
+        {
+            var edge = this.listBoxEdges.SelectedItem as IWeightedEdge;
+            if (edge is null)
+            {
+                return;
+            }
+
+            this.comboBoxVertexSource.Text = edge.Source;
+            this.comboBoxVertexDestination.Text = edge.Destination;
+            this.numericUpDownWeight.Value = edge.Weight;
         }
     }
 }

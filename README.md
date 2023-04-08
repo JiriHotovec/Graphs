@@ -59,11 +59,10 @@ Dijkstra's algorithm is used to find shortest path through the graph.
 
 #### Usage
 
-1) Click on *Refresh* button to initialize controls
-2) Select vertices
+1) Select vertices
    * Vertex source - start position
    * Vertex destination - end position
-3) Click on *Find path* button
+2) Click on *Find path* button
 
 ## Storage
 
