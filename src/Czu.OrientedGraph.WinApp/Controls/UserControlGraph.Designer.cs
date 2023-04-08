@@ -51,7 +51,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.comboBoxVertexSource.Location = new System.Drawing.Point(76, 29);
             this.comboBoxVertexSource.Name = "comboBoxVertexSource";
             this.comboBoxVertexSource.Size = new System.Drawing.Size(104, 21);
-            this.comboBoxVertexSource.TabIndex = 0;
+            this.comboBoxVertexSource.TabIndex = 2;
             // 
             // comboBoxVertexDestination
             // 
@@ -61,7 +61,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.comboBoxVertexDestination.Location = new System.Drawing.Point(76, 56);
             this.comboBoxVertexDestination.Name = "comboBoxVertexDestination";
             this.comboBoxVertexDestination.Size = new System.Drawing.Size(104, 21);
-            this.comboBoxVertexDestination.TabIndex = 1;
+            this.comboBoxVertexDestination.TabIndex = 3;
             // 
             // labelVertexSource
             // 
@@ -88,7 +88,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.buttonUpsert.Location = new System.Drawing.Point(76, 110);
             this.buttonUpsert.Name = "buttonUpsert";
             this.buttonUpsert.Size = new System.Drawing.Size(104, 23);
-            this.buttonUpsert.TabIndex = 4;
+            this.buttonUpsert.TabIndex = 5;
             this.buttonUpsert.Text = "Add/Update";
             this.buttonUpsert.UseVisualStyleBackColor = true;
             this.buttonUpsert.Click += new System.EventHandler(this.buttonUpsert_Click);
@@ -114,7 +114,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             0});
             this.numericUpDownWeight.Name = "numericUpDownWeight";
             this.numericUpDownWeight.Size = new System.Drawing.Size(104, 20);
-            this.numericUpDownWeight.TabIndex = 6;
+            this.numericUpDownWeight.TabIndex = 4;
             this.numericUpDownWeight.Value = new decimal(new int[] {
             1,
             0,
@@ -140,7 +140,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.listBoxEdges.Location = new System.Drawing.Point(6, 139);
             this.listBoxEdges.Name = "listBoxEdges";
             this.listBoxEdges.Size = new System.Drawing.Size(174, 225);
-            this.listBoxEdges.TabIndex = 8;
+            this.listBoxEdges.TabIndex = 6;
             // 
             // labelName
             // 
@@ -158,7 +158,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.textBoxName.Location = new System.Drawing.Point(76, 3);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(104, 20);
-            this.textBoxName.TabIndex = 10;
+            this.textBoxName.TabIndex = 1;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // UserControlGraph

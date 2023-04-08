@@ -176,6 +176,11 @@ namespace Czu.OrientedGraph.Algorithm.Dijkstra
                 }
             }
 
+            if (!minVertexPaths.Any())
+            {
+                return null;
+            }
+
             var minVertexSumWeight = minVertexPaths.Min(pair => pair.Value.SumWeight);
             var minVertexPath = minVertexPaths.Select(s => s.Value).FirstOrDefault(pair => pair.SumWeight == minVertexSumWeight);
 

@@ -93,6 +93,8 @@ namespace Czu.OrientedGraph.WinApp
             }
 
             await _graphStorage.UpsertAsync(_graph.ToSnapshot());
+
+            MessageBox.Show("Graph was successfully saved", "Information");
         }
 
         private void menuItemHelpView_Click(object sender, EventArgs e)

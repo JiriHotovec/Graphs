@@ -42,6 +42,8 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.labelDijkstraTitle = new System.Windows.Forms.Label();
             this.labelPathValue = new System.Windows.Forms.Label();
             this.labelSumPathWeightValue = new System.Windows.Forms.Label();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // labelVertexSource
@@ -62,7 +64,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.comboBoxVertexSource.Location = new System.Drawing.Point(72, 24);
             this.comboBoxVertexSource.Name = "comboBoxVertexSource";
             this.comboBoxVertexSource.Size = new System.Drawing.Size(159, 21);
-            this.comboBoxVertexSource.TabIndex = 1;
+            this.comboBoxVertexSource.TabIndex = 10;
             // 
             // comboBoxVertexDestination
             // 
@@ -73,7 +75,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.comboBoxVertexDestination.Location = new System.Drawing.Point(72, 51);
             this.comboBoxVertexDestination.Name = "comboBoxVertexDestination";
             this.comboBoxVertexDestination.Size = new System.Drawing.Size(159, 21);
-            this.comboBoxVertexDestination.TabIndex = 3;
+            this.comboBoxVertexDestination.TabIndex = 11;
             // 
             // labelVertexDestination
             // 
@@ -88,10 +90,10 @@ namespace Czu.OrientedGraph.WinApp.Controls
             // 
             this.buttonFindPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonFindPath.Location = new System.Drawing.Point(6, 78);
+            this.buttonFindPath.Location = new System.Drawing.Point(72, 78);
             this.buttonFindPath.Name = "buttonFindPath";
-            this.buttonFindPath.Size = new System.Drawing.Size(225, 23);
-            this.buttonFindPath.TabIndex = 4;
+            this.buttonFindPath.Size = new System.Drawing.Size(159, 23);
+            this.buttonFindPath.TabIndex = 12;
             this.buttonFindPath.Text = "Find path";
             this.buttonFindPath.UseVisualStyleBackColor = true;
             this.buttonFindPath.Click += new System.EventHandler(this.buttonFindPath_Click);
@@ -104,17 +106,18 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.listBoxResultPaths.FormattingEnabled = true;
             this.listBoxResultPaths.Location = new System.Drawing.Point(6, 138);
             this.listBoxResultPaths.Name = "listBoxResultPaths";
+            this.listBoxResultPaths.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listBoxResultPaths.Size = new System.Drawing.Size(225, 186);
-            this.listBoxResultPaths.TabIndex = 5;
+            this.listBoxResultPaths.TabIndex = 13;
             // 
             // labelSumPathWeight
             // 
             this.labelSumPathWeight.AutoSize = true;
             this.labelSumPathWeight.Location = new System.Drawing.Point(3, 104);
             this.labelSumPathWeight.Name = "labelSumPathWeight";
-            this.labelSumPathWeight.Size = new System.Drawing.Size(68, 13);
+            this.labelSumPathWeight.Size = new System.Drawing.Size(71, 13);
             this.labelSumPathWeight.TabIndex = 6;
-            this.labelSumPathWeight.Text = "Weight Sum:";
+            this.labelSumPathWeight.Text = "Total Weight:";
             // 
             // labelPath
             // 
@@ -149,16 +152,27 @@ namespace Czu.OrientedGraph.WinApp.Controls
             // 
             this.labelSumPathWeightValue.AutoSize = true;
             this.labelSumPathWeightValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelSumPathWeightValue.Location = new System.Drawing.Point(69, 104);
+            this.labelSumPathWeightValue.Location = new System.Drawing.Point(70, 104);
             this.labelSumPathWeightValue.Name = "labelSumPathWeightValue";
             this.labelSumPathWeightValue.Size = new System.Drawing.Size(14, 13);
             this.labelSumPathWeightValue.TabIndex = 10;
             this.labelSumPathWeightValue.Text = "0";
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(6, 78);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(60, 23);
+            this.buttonRefresh.TabIndex = 9;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // UserControlDijkstra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.labelSumPathWeightValue);
             this.Controls.Add(this.labelPathValue);
             this.Controls.Add(this.labelDijkstraTitle);
@@ -191,5 +205,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
         private System.Windows.Forms.Label labelDijkstraTitle;
         private System.Windows.Forms.Label labelPathValue;
         private System.Windows.Forms.Label labelSumPathWeightValue;
+        private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

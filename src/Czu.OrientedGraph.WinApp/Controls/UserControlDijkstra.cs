@@ -34,10 +34,19 @@ namespace Czu.OrientedGraph.WinApp.Controls
 
         private async void buttonFindPath_Click(object sender, EventArgs e)
         {
+            var vSrc = new Vertex(this.comboBoxVertexSource.Text);
+            var vDst = new Vertex(this.comboBoxVertexDestination.Text);
+            if (vSrc == vDst)
+            {
+                this.labelPathValue.Text = vSrc;
+                this.labelSumPathWeightValue.Text = "0";
+                this.listBoxResultPaths.DataSource = Array.Empty<string>();
+                this.toolTip1.SetToolTip(this.labelPathValue, this.labelPathValue.Text);
+                return;
+            }
+
             var dijkstra = new DijkstraProvider(_graph.GetEdges().ToArray());
-            var result = await dijkstra.GetShortestPathAsync(
-                new Vertex(this.comboBoxVertexSource.Text),
-                new Vertex(this.comboBoxVertexDestination.Text));
+            var result = await dijkstra.GetShortestPathAsync(vSrc, vDst);
 
             if (!result.IsSuccess)
             {
@@ -49,6 +58,7 @@ namespace Czu.OrientedGraph.WinApp.Controls
             this.listBoxResultPaths.DataSource = result.Paths.ToList();
             this.labelPathValue.Text = GetPathVerticesText(GetPathVertices(result));
             this.labelSumPathWeightValue.Text = GetPathWeightTotal(result).ToString();
+            this.toolTip1.SetToolTip(this.labelPathValue, this.labelPathValue.Text);
         }
 
         private void RefreshUI()
@@ -56,7 +66,10 @@ namespace Czu.OrientedGraph.WinApp.Controls
             var vertices = _graph.GetVertices().OrderBy(o => o.Name).ToList();
             this.comboBoxVertexSource.DataSource = vertices.ToList();
             this.comboBoxVertexDestination.DataSource = vertices.ToList();
-            this.listBoxResultPaths.Items.Clear();
+            this.listBoxResultPaths.DataSource = Array.Empty<string>();
+            this.labelPathValue.Text = "->";
+            this.labelSumPathWeightValue.Text = "0";
+            this.toolTip1.SetToolTip(this.labelPathValue, this.labelPathValue.Text);
         }
 
         private int GetPathWeightTotal(IPathResult result) => result.Paths.Sum(s => s.Weight);
@@ -85,5 +98,10 @@ namespace Czu.OrientedGraph.WinApp.Controls
             edge.Source == vertex ? edge.Destination : edge.Source;
 
         private string GetPathVerticesText(IEnumerable<Vertex> vertices) => string.Join(" -> ", vertices);
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshUI();
+        }
     }
 }
