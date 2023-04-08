@@ -2,13 +2,14 @@
 
 Desktop application for finding the shortest path in weighted graph using Dijkstra's algorithm.
 
-## Prerequisite
+## Prerequisites
 
 * Windows
 * .NET Framework 4.7.2 Runtime - [*(download)*](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net472-offline-installer)
 
 ## Used technologies
 
+* Git - project is stored on [GitHub](https://github.com/JiriHotovec/Graphs)
 * .NET Framework 4.7.2
 * WinForms
 * File storage
@@ -18,7 +19,7 @@ Desktop application for finding the shortest path in weighted graph using Dijkst
 * Recursion call
 * Components implement interfaces
 * Dijkstra's algorithm
-* Weighted graph: current version includes only undirected graph implementation (A, B) = (B, A)
+* Weighted graph - current version includes only undirected graph implementation (A, B) = (B, A)
 
 ## Usage
 
