@@ -5,11 +5,25 @@ Desktop application for finding the shortest path in weighted graph using Dijkst
 ## Prerequisite
 
 * Windows
-* .NET Framework 4.7.2 Runtime
+* .NET Framework 4.7.2 Runtime - [*(download)*](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net472-offline-installer)
+
+## Used technologies
+
+* .NET Framework 4.7.2
+* WinForms
+* File storage
+* Linq to Objects
+* Value Objects
+* Code covered by Unit Tests
+* Recursion call
+* Components implement interfaces
+* Dijkstra's algorithm
+* Weighted graph
 
 ## Usage
 
 ### Application start
+
 Run executable file from the root of the application *./Czu.OrientedGraph.WinApp.exe*.
 
 ### Menu
@@ -45,10 +59,11 @@ Dijkstra's algorithm is used to find shortest path through the graph.
 
 #### Usage
 
-1) Select vertices
+1) Click on *Refresh* button to initialize controls
+2) Select vertices
    * Vertex source - start position
    * Vertex destination - end position
-2) Click on *Find path* button
+3) Click on *Find path* button
 
 ## Storage
 
