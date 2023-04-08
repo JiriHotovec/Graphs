@@ -101,7 +101,7 @@ namespace Czu.Graphs.WinApp
 
         private void menuItemHelpView_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/JiriHotovec/OrientedGraph#readme");
+            Process.Start("https://github.com/JiriHotovec/Graphs#readme");
         }
 
         private void OnGraphChanged()
