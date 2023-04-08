@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.Graphs.WinApp", "Czu.Graphs.WinApp\Czu.Graphs.WinApp.csproj", "{DB7354EA-D4C0-41B0-86BB-32936731F946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.Graphs.Core", "Czu.Graphs.Core\Czu.Graphs.Core.csproj", "{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.Graphs.Core.Tests", "Czu.Graphs.Core.Tests\Czu.Graphs.Core.Tests.csproj", "{7C01FDCF-D010-4D09-9000-8E97A89571B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.Graphs.Algorithm.Dijkstra", "Czu.Graphs.Algorithm.Dijkstra\Czu.Graphs.Algorithm.Dijkstra.csproj", "{5AA0F352-C3E9-4F2B-A649-1D46F2E407B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.Graphs.Algorithm.Dijkstra.Tests", "Czu.Graphs.Algorithm.Dijkstra.Tests\Czu.Graphs.Algorithm.Dijkstra.Tests.csproj", "{9FC33327-5F2D-4091-848E-B32708DA872F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{91C33D08-10D1-4F78-987A-960978905A70}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB7354EA-D4C0-41B0-86BB-32936731F946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB7354EA-D4C0-41B0-86BB-32936731F946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB7354EA-D4C0-41B0-86BB-32936731F946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB7354EA-D4C0-41B0-86BB-32936731F946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2DAD15-FAC6-45B7-BDA7-34FDD1C3D676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C01FDCF-D010-4D09-9000-8E97A89571B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C01FDCF-D010-4D09-9000-8E97A89571B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C01FDCF-D010-4D09-9000-8E97A89571B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C01FDCF-D010-4D09-9000-8E97A89571B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA0F352-C3E9-4F2B-A649-1D46F2E407B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA0F352-C3E9-4F2B-A649-1D46F2E407B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA0F352-C3E9-4F2B-A649-1D46F2E407B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA0F352-C3E9-4F2B-A649-1D46F2E407B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FC33327-5F2D-4091-848E-B32708DA872F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC33327-5F2D-4091-848E-B32708DA872F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC33327-5F2D-4091-848E-B32708DA872F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC33327-5F2D-4091-848E-B32708DA872F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A192710-3F1E-4A8C-BEC7-AE369D0BFBA2}
+	EndGlobalSection
+EndGlobal

@@ -24,7 +24,7 @@ Desktop application for finding the shortest path in weighted graph using Dijkst
 
 ### Application start
 
-Run executable file from the root of the application *./Czu.OrientedGraph.WinApp.exe*.
+Run executable file from the root of the application *./Czu.Graphs.WinApp.exe*.
 
 ### Menu
 
