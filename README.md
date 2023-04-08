@@ -1,4 +1,4 @@
-# Weighted Graph
+# Graphs
 
 Desktop application for finding the shortest path in weighted graph using Dijkstra's algorithm.
 
@@ -18,7 +18,7 @@ Desktop application for finding the shortest path in weighted graph using Dijkst
 * Recursion call
 * Components implement interfaces
 * Dijkstra's algorithm
-* Weighted graph
+* Weighted graph: current version includes only undirected graph implementation (A, B) = (B, A)
 
 ## Usage
 
