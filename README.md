@@ -7,7 +7,7 @@ Desktop application for finding the shortest path in weighted graph using Dijkst
 * Windows
 * .NET Framework 4.7.2 Runtime - [*(download)*](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net472-offline-installer)
 
-## Used technologies
+## Used Technologies
 
 * Git - project is stored on [GitHub](https://github.com/JiriHotovec/Graphs)
 * .NET Framework 4.7.2
@@ -23,7 +23,7 @@ Desktop application for finding the shortest path in weighted graph using Dijkst
 
 ## Usage
 
-### Application start
+### Application Start
 
 Run executable file from the root of the application *./Czu.Graphs.WinApp.exe*.
 
@@ -69,7 +69,7 @@ Dijkstra's algorithm is used to find shortest path through the graph.
 
 Graph is stored as *.json file on disk.
 
-### IGraphStorage interface
+### IGraphStorage Interface
 
 New storage could be implemented by interface *IGraphStorage*.
 
@@ -97,3 +97,13 @@ All saved graphs are stored under application root folder *./SavedGraphs*. If fo
     ]
 }
 ```
+
+## Class Diagrams
+
+### Czu.Graphs.Algorithm.Dijkstra
+
+![Dijkstra's class diagram](https://github.com/JiriHotovec/Graphs/blob/main/Czu.Graphs.Algorithm.Dijkstra.ClassDiagram.PNG?raw=true)
+
+### Czu.Graphs.Core
+
+![Core class diagram](https://github.com/JiriHotovec/Graphs/blob/main/Czu.Graphs.Core.ClassDiagram.PNG?raw=true)
