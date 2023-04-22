@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czu.Graphs.Algorithm.Dijkst
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{91C33D08-10D1-4F78-987A-960978905A70}"
 	ProjectSection(SolutionItems) = preProject
+		..\Czu.Graphs.Algorithm.Dijkstra.ClassDiagram.PNG = ..\Czu.Graphs.Algorithm.Dijkstra.ClassDiagram.PNG
+		..\Czu.Graphs.Core.ClassDiagram.PNG = ..\Czu.Graphs.Core.ClassDiagram.PNG
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
